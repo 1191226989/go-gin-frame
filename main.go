@@ -1,8 +1,6 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 
@@ -16,20 +14,8 @@ func main() {
 	// Switch to "release" mode in production
 	// gin.SetMode(gin.ReleaseMode)
 
-	engine.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{
-			http.MethodHead,
-			http.MethodGet,
-			http.MethodPost,
-			http.MethodPut,
-			http.MethodPatch,
-			http.MethodDelete,
-		},
-		AllowHeaders:     []string{"*"},
-		ExposeHeaders:    []string{"Content-Length"},
-		AllowCredentials: true,
-	}))
+	// 跨域
+	engine.Use(cors.Default())
 
 	// 设置 API 路由
 	router.SetApiRouter(engine)
