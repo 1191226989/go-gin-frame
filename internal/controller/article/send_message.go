@@ -2,7 +2,7 @@ package article
 
 import (
 	"encoding/json"
-	"go-gin-frame/internal/api/socket"
+	"go-gin-frame/internal/controller/socket"
 	"go-gin-frame/pkg/timeutil"
 	"net/http"
 

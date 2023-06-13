@@ -1,8 +1,8 @@
 package router
 
 import (
-	"go-gin-frame/internal/api/article"
-	"go-gin-frame/internal/api/socket"
+	"go-gin-frame/internal/controller/article"
+	"go-gin-frame/internal/controller/socket"
 
 	"github.com/gin-gonic/gin"
 )
