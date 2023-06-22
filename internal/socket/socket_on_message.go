@@ -11,11 +11,11 @@ func (s *server) OnMessage() {
 		//接收消息
 		_, message, err := s.socket.ReadMessage()
 		if err != nil {
-			logrus.Error("socket on message error", err)
+			logrus.Error("socket on message error: ", err)
 			break
 		}
 
 		// 为了便于演示，仅输出到日志文件
-		logrus.Info("receive message: " + string(message))
+		logrus.Infof("receive message: %s ; send from: %s", string(message), s.socket.RemoteAddr().String())
 	}
 }

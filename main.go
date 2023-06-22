@@ -4,10 +4,13 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 
+	"go-gin-frame/global"
 	"go-gin-frame/internal/router"
 )
 
 func main() {
+	global.Init()
+
 	engine := gin.Default()
 
 	gin.SetMode(gin.DebugMode)
