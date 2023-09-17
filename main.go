@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 
 	"go-gin-frame/assets"
 	"go-gin-frame/global"
@@ -12,7 +13,8 @@ import (
 )
 
 func main() {
-	global.Init()
+	global.InitSqlite()
+	global.InitRedis()
 
 	engine := gin.Default()
 
@@ -31,5 +33,7 @@ func main() {
 	// 设置 Socket 路由
 	router.SetSocketRouter(engine)
 
-	engine.Run(":8080")
+	if err := engine.Run(":8080"); err != nil {
+		logrus.Fatalf("run server: %v", err)
+	}
 }

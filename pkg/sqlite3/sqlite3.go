@@ -8,13 +8,13 @@ import (
 )
 
 var (
+	err  error
 	db   *gorm.DB
 	once sync.Once
 )
 
 // 单例
-func NewDB() (*gorm.DB, error) {
-	var err error
+func GetInstance() (*gorm.DB, error) {
 	once.Do(func() {
 		db, err = gorm.Open(sqlite.Open("sqlite3.db"), &gorm.Config{})
 	})

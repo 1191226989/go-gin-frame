@@ -1,7 +1,7 @@
 package article
 
 import (
-	"go-gin-frame/internal/database/sqlite3"
+	"go-gin-frame/pkg/sqlite3"
 	"sync"
 
 	"gorm.io/gorm"
@@ -31,7 +31,7 @@ type model struct {
 func NewModel() (*model, error) {
 	var err error
 	once.Do(func() {
-		database, dbErr := sqlite3.NewDB()
+		database, dbErr := sqlite3.GetInstance()
 		m = &model{
 			db: database,
 		}
