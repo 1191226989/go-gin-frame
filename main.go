@@ -8,14 +8,16 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"go-gin-frame/assets"
-	"go-gin-frame/global"
+	"go-gin-frame/initial"
 	"go-gin-frame/internal/router"
 )
 
-func main() {
-	global.InitSqlite()
-	global.InitRedis()
+func init() {
+	initial.InitSqlite()
+	initial.InitRedis()
+}
 
+func main() {
 	engine := gin.Default()
 
 	gin.SetMode(gin.DebugMode)
