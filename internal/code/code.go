@@ -2,6 +2,9 @@ package code
 
 import (
 	_ "embed"
+
+	"go-gin-frame/config"
+	"go-gin-frame/constants"
 )
 
 //go:embed code.go
@@ -51,3 +54,17 @@ const (
 	ArticleUpdateError = 20204
 	ArticleDetailError = 20213
 )
+
+func Text(code int) string {
+	lang := config.Get().Language.Local
+
+	if lang == constants.ZhCN {
+		return zhCNText[code]
+	}
+
+	if lang == constants.EnUS {
+		return enUSText[code]
+	}
+
+	return zhCNText[code]
+}

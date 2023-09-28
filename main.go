@@ -8,12 +8,13 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"go-gin-frame/assets"
+	"go-gin-frame/initial"
 	"go-gin-frame/internal/router"
 )
 
 func init() {
-	InitSqlite()
-	InitRedis()
+	initial.InitSqlite()
+	initial.InitRedis()
 }
 
 func main() {
