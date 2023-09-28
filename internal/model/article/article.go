@@ -7,8 +7,8 @@ import (
 type Article struct {
 	gorm.Model
 
-	Title   string
-	Content string
+	Title   string `json:"title"`
+	Content string `json:"content"`
 }
 
 // 表名称

@@ -1,4 +1,4 @@
-package initial
+package main
 
 import (
 	"go-gin-frame/internal/model/article"
